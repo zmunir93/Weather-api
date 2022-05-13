@@ -13,10 +13,6 @@ app.post('/weather', (req, res) => {
 
 })
 
-app.get('/', (req, res) => {
-    res.send('Welcome to Home Page')
-});
-
 app.listen(3000, () => {
     console.log('Server has starter')
 });
