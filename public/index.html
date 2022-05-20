@@ -4,10 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="server.js"></script>
+    <script async defer type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAYPOtoE2QBeI1ZAgf173LqdL85EKGBKE&libraries=places&callback=initAutocomplete">
+    </script>
+    <script defer src="script.js"></script>
+    <!-- <script src="server.js"></script> -->
+</script>
     <title>Weather Api</title>
 </head>
 <body>
+    
+
+
+<input id="autocomplete" placeholder="Enter a place" type="text" style="width: 300px;"/>
+
+<h1 id="details"></h1>
+
+    <!-- <div class="container">
+        <header>
+            <div class="icon-container">
+                <canvas id="icon"></canvas>
+            </div>
+        </header>
+        <div class="info-container">
+            <div class="general-info">
+                <div class="weather-status">Enter A Location</div>
+                <div class="location"></div>
+            </div>
+            <div class="detail-section">
+                <div class="detail">
+                    <div class="title">Wind</div>
+                    <div class="value">TBD</div>
+                </div>
+                <div class="detail">
+                    <div class="title">Temp</div>
+                    <div class="value">TBD</div>
+                </div>
+                <div class="detail">
+                    <div class="title">Precipitation</div>
+                    <div class="value">TBD</div>
+                </div>
+            </div>
+            <div class="city-search-container">
+                <input type="text" id="text-input" placeholder="Enter Location" data-city-search>
+            </div>
+        </div>
+    </div> -->
     
 </body>
 </html>
