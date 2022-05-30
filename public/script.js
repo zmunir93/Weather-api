@@ -15,27 +15,45 @@ function initAutocomplete() {
 function onPlaceChanged() {   
 
     var place = autocomplete.getPlace();
-    userLocation = place.name;
+    console.log(place);
+    userLocation = place.formatted_address;
     console.log(userLocation);
     console.log(typeof userLocation);
-
     
     let params = new URLSearchParams({
         access_key: '33b75764c314778e974be58e0d3eb310',
         query: userLocation,
         units: 'f'
     })
-    
+
+    function filter(data) {
+        const temp = `${data.current.temperature}°`;
+        const description = `${data.current.weather_descriptions[0]}`;
+        const wind = `${data.current.wind_speed}`;
+        const rain = `${data.current.precip}%`;
+        const humid = `${data.current.humidity}`
+        var home = JSON.stringify(data);
+       console.log(JSON.parse(home));
+       document.querySelector('#temp').innerHTML = temp;
+       document.querySelector('#description').innerHTML = description;
+       document.querySelector('#wind').innerHTML = wind;
+       document.querySelector('#rain').innerHTML = rain;
+       document.querySelector('#humid').innerHTML = humid;
+       
+
+    }
+
     fetch(`http://api.weatherstack.com/current?${params}`)
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(function(data) {
+        filter(data)
+    });
 
-
+    
 
     if (!place.geometry) {
         document.getElementById('autocomplete').placeholder = 'Enter a place';
     } else {
-        document.getElementById('details').innerHTML = place.name;
-        document.getElementById('details').innerHTML = place.name;
+        document.getElementById('details').innerHTML = place.formatted_address;
     }
-}
+} 
