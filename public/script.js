@@ -27,18 +27,20 @@ function onPlaceChanged() {
     })
 
     function filter(data) {
-        const temp = `${data.current.temperature}°`;
+        const temp = `${data.current.temperature}°F`;
         const description = `${data.current.weather_descriptions[0]}`;
-        const wind = `${data.current.wind_speed}`;
-        const rain = `${data.current.precip}%`;
-        const humid = `${data.current.humidity}`
+        const wind = `${data.current.wind_speed} mph wind gusts`;
+        //const rain = `${data.current.precip}% rain`;
+        const humid = `${data.current.humidity}% humidity`
+        const icon = `${data.current.weather_icons[0]}`
         var home = JSON.stringify(data);
        console.log(JSON.parse(home));
        document.querySelector('#temp').innerHTML = temp;
        document.querySelector('#description').innerHTML = description;
        document.querySelector('#wind').innerHTML = wind;
-       document.querySelector('#rain').innerHTML = rain;
+       //document.querySelector('#rain').innerHTML = rain;
        document.querySelector('#humid').innerHTML = humid;
+       document.querySelector('#icon').src = icon;
        
 
     }

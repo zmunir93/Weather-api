@@ -8,58 +8,38 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAYPOtoE2QBeI1ZAgf173LqdL85EKGBKE&libraries=places&callback=initAutocomplete">
     </script>
     <script defer src="script.js"></script>
-    <!-- <script src="server.js"></script> -->
-</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Mulish:wght@300&family=Open+Sans:ital,wght@0,300;1,500&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Weather Api</title>
 </head>
 <body>
     
+<div class="main-container">
 
+    
+    <div class="card">
+        <h3 id="details">--</h3>
+        
+        <h1 id="temp">--</h1>
+        
+        <img id="icon" src="">
+        
+        <h4 id="description">--</h4>
+        
+        <h4 id="wind">--</h4>
+        
+        <!-- <h4 id="rain">rain</h4> -->
+        
+        <h4 id="humid">--</h4>
+    </div>
+    <input id="autocomplete" placeholder="Enter a place" type="text"/>
 
-<input id="autocomplete" placeholder="Enter a place" type="text" style="width: 300px;"/>
+</div>
 
-<h1 id="details">Enter A location</h1>
-
-<h1 id="temp">-</h1>
-
-<h1 id="description"></h1>
-
-<h1 id="wind"></h1>
-
-<h1 id="rain"></h1>
-
-<h1 id="humid"></h1>
-
-    <!-- <div class="container">
-        <header>
-            <div class="icon-container">
-                <canvas id="icon"></canvas>
-            </div>
-        </header>
-        <div class="info-container">
-            <div class="general-info">
-                <div class="weather-status">Enter A Location</div>
-                <div class="location"></div>
-            </div>
-            <div class="detail-section">
-                <div class="detail">
-                    <div class="title">Wind</div>
-                    <div class="value">TBD</div>
-                </div>
-                <div class="detail">
-                    <div class="title">Temp</div>
-                    <div class="value">TBD</div>
-                </div>
-                <div class="detail">
-                    <div class="title">Precipitation</div>
-                    <div class="value">TBD</div>
-                </div>
-            </div>
-            <div class="city-search-container">
-                <input type="text" id="text-input" placeholder="Enter Location" data-city-search>
-            </div>
-        </div>
-    </div> -->
     
 </body>
 </html>
