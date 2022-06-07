@@ -43,7 +43,7 @@ function onPlaceChanged() {
 
     }
 
-    fetch(`https://api.weatherstack.com/current?${params}`)
+    fetch(`http://api.weatherstack.com/current?${params}`)
     .then(response => response.json())
     .then(function(data) {
         filter(data)
