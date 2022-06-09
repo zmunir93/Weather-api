@@ -15,43 +15,34 @@ function initAutocomplete() {
 function onPlaceChanged() {   
 
     var place = autocomplete.getPlace();
-    console.log(place);
     userLocation = place.formatted_address;
-    console.log(userLocation);
-    console.log(typeof userLocation);
     
     let params = new URLSearchParams({
-        access_key: '33b75764c314778e974be58e0d3eb310',
-        query: userLocation,
-        units: 'f'
+        appid: '0ebc6937c14d7aa5f19e42331293f482',
+        units: 'imperial'
     })
 
     function filter(data) {
-        var home = JSON.stringify(data);
-       console.log(JSON.parse(home));
-        const temp = `${data.current.temperature}°F`;
-        const description = `${data.current.weather_descriptions[0]}`;
-        const wind = `${data.current.wind_speed} mph wind gusts`;
-        //const rain = `${data.current.precip}% rain`;
-        const humid = `${data.current.humidity}% humidity`
-        const icon = `${data.current.weather_icons[0]}`
-       document.querySelector('#temp').innerHTML = temp;
-       document.querySelector('#description').innerHTML = description;
-       document.querySelector('#wind').innerHTML = wind;
-       //document.querySelector('#rain').innerHTML = rain;
-       document.querySelector('#humid').innerHTML = humid;
-       document.querySelector('#icon').src = icon;
-       
+        const description = `${data.weather[0].description}`;
+        const temp = `${Math.floor(data.main.temp)}<sup>°f</sup>`;
+        const icon = `https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png`;
+        const wind = `${data.wind.speed} mph winds`;
+        const humid = `${data.main.humidity}% humidity`
+        document.querySelector('#description').innerHTML = description;
+        document.querySelector('#temp').innerHTML = temp;
+        document.querySelector('#icon').src = icon;
+        document.querySelector('#wind').innerHTML = wind;
+        document.querySelector('#humid').innerHTML = humid;
+     }
 
-    }
 
-    fetch(`http://api.weatherstack.com/current?${params}`)
-    .then(response => response.json())
-    .then(function(data) {
-        filter(data)
-    });
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&${params}`)
+        .then(response => response.json())
+        .then(function(data) {
+            filter(data);
+        });
 
-    
+
 
     if (!place.geometry) {
         document.getElementById('autocomplete').placeholder = 'Enter a place';
